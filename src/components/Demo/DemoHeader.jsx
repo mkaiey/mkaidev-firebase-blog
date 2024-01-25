@@ -21,7 +21,7 @@ const DemoHeader = () => {
     >
       <div className="size h-[70px] flex items-center justify-between">
         <Link to={"/"}>
-          <img className="h-[2.5rem]" src="mkai-blog.png" alt="logo" />
+          <img className="h-[2.5rem]" src="/public/mkai-blog.png" alt="logo" />
         </Link>
         <div className="flex items-center gap-5">
           <div className="hidden text-sm sm:flex items-center gap-5">

@@ -3,11 +3,11 @@ import { MdOutlineLocalLibrary } from "react-icons/md";
 import { BiSpreadsheet } from "react-icons/bi";
 import { HiOutlineChartBar } from "react-icons/hi";
 import { LiaEditSolid } from "react-icons/lia";
-import { Blog } from "../../../context/Context";
+import { Blog } from "../../../Context/Context";
 import { Link } from "react-router-dom";
 import { secretEmail } from "../../../utils/helper";
 
-const UserModal = () => {
+const UserModal = (setModal) => {
   const { currentUser } = Blog();
   const userModal = [
     {
@@ -48,9 +48,10 @@ const UserModal = () => {
       <div className="flex flex-col gap-4 border-b border-gray-300 pb-5">
         {userModal.map((link, i) => (
           <Link
+            onClick={() => setModal(false)}
             className="flex items-center gap-2 text-gray-500 hover:text-black/70"
             key={i}
-            path={link.path}
+            to={link.path}
           >
             <span className="text-2xl">{link.icon}</span>
             <h2 className="text-md">{link.title}</h2>
