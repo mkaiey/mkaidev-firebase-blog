@@ -23,7 +23,11 @@ const HomeHeader = () => {
         {/* left side  */}
         <div className="flex items-center gap-3">
           <Link to={"/"}>
-            <img className="h-[2.5rem]" src="/public/mkai-blog.png" alt="logo" />
+            <img
+              className="h-[2.5rem]"
+              src="https://res.cloudinary.com/dymu4drhj/image/upload/v1706212678/mkai-blog_rb1pbe.png"
+              alt="logo"
+            />
           </Link>
           <Search modal={searchModal} setModal={setSearchModal} />
         </div>
