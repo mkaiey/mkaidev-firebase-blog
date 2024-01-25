@@ -93,8 +93,8 @@ const Auth = ({ modal, setModal }) => {
             <SignUp setModal={setModal} setSignReq={setSignReq} />
           ) : null}
           <p className="md:w-[30rem] mx-auto text-center text-sm mb-[3rem]">
-            Click “Sign In” to agree to Medium’s Terms of Service and
-            acknowledge that Medium’s Privacy Policy applies to you.
+            Click “Sign In” to agree to MkaiBlog Terms of Service and
+            acknowledge that MkaiBlog Privacy Policy applies to you.
           </p>
         </div>
       </section>

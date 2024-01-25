@@ -44,7 +44,7 @@ const SignUp = ({ setSignReq, setModal }) => {
           bio: "",
         });
         navigate("/");
-        toast.success("User have been Signed in");
+        toast.success("New account has been Created");
         setModal(false);
         setLoading(false);
       }
