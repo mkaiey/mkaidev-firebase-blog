@@ -4,14 +4,14 @@ const DropDown = ({ children, size, showDrop, setShowDrop }) => {
   const dropRef = useRef(null);
   useEffect(() => {
     const clickOutside = (e) => {
-      if (!dropRef.current.contains(e.target)) {
+      if (showDrop && dropRef.current && !dropRef.current.contains(e.target)) {
         setShowDrop(false);
       }
     };
     window.addEventListener("mousedown", clickOutside);
     return () => window.removeEventListener("mousedown", clickOutside);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    // eslint-disable-next-line
+  }, [dropRef, showDrop]);
 
   return (
     <>

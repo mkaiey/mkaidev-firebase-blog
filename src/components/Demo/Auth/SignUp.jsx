@@ -42,9 +42,10 @@ const SignUp = ({ setSignReq, setModal }) => {
           email: form.email,
           userImg: "",
           bio: "",
+          created: Date.now(),
         });
         navigate("/");
-        toast.success("New account has been Created");
+        toast.success("New Account has been Created");
         setModal(false);
         setLoading(false);
       }
