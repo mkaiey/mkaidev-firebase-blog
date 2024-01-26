@@ -1,11 +1,12 @@
-import useFetch from "../../../hooks/useFetch";
 import Loading from "../../../Loading/Loading";
 import PostsCard from "../../../Common/Posts/PostsCard";
+import useFetch from "../../../hooks/useFetch";
 
 const ProfileHome = ({ getUserData }) => {
-  const { data, loading } = useFetch("posts");
+  const { data: postData, loading: postLoading } = useFetch("posts");
   const userPost =
-    data && data?.filter((post) => post.userId === getUserData?.userId);
+    postData &&
+    postData?.filter((post) => post?.userId === getUserData?.userId);
 
   return (
     <div className="flex flex-col gap-5 mb-[4rem]">
@@ -15,10 +16,11 @@ const ProfileHome = ({ getUserData }) => {
           posts
         </p>
       )}
-      {loading ? (
+      {postLoading ? (
         <Loading />
       ) : (
-        userPost.map((post, i) => <PostsCard post={post} key={i} />)
+        userPost &&
+        userPost?.map((post, i) => <PostsCard post={post} key={i} />)
       )}
     </div>
   );

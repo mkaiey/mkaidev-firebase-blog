@@ -89,15 +89,19 @@ const SinglePost = () => {
               <div className="flex items-center pt-2 gap-5">
                 {post && <SavedPost post={post} />}
                 <SharePost />
-                {currentUser?.uid === post?.userId && <Actions />}
+                {currentUser?.uid === post?.userId && (
+                  <Actions postId={postId} title={title} desc={desc} />
+                )}
               </div>
             </div>
             <div className="mt-[3rem]">
-              <img
-                className="w-full h-[400px] object-cover"
-                src={postImg}
-                alt="post-img"
-              />
+              {postImg && (
+                <img
+                  className="w-full h-[400px] object-cover"
+                  src={postImg}
+                  alt="post-img"
+                />
+              )}
               <div
                 className="mt-6"
                 dangerouslySetInnerHTML={{ __html: desc }}

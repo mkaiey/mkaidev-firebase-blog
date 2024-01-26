@@ -1,6 +1,6 @@
-import useFetch from "../../hooks/useFetch";
 import Loading from "../../Loading/Loading";
 import PostsCard from "./PostsCard";
+import useFetch from "../../hooks/useFetch";
 
 const Posts = () => {
   const { data, loading } = useFetch("posts");
@@ -9,7 +9,7 @@ const Posts = () => {
       {loading ? (
         <Loading />
       ) : (
-        data?.map((post, i) => <PostsCard post={post} key={i} />)
+        data && data?.map((post, i) => <PostsCard post={post} key={i} />)
       )}
     </section>
   );

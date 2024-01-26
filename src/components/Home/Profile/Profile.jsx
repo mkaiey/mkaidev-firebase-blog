@@ -37,7 +37,6 @@ const Profile = () => {
   const { data: follows } = useSingleFetch("users", userId, "follows");
   const { data: followers } = useSingleFetch("users", userId, "followers");
 
-  console.log(followers, follows);
   return (
     <section className="size flex gap-[4rem] relative">
       {/* users activities  */}
@@ -108,9 +107,11 @@ const Profile = () => {
               src={getUserData?.userImg || "/profile.jpg"}
               alt="profile-img"
             />
-            <h2 className="py-2 font-bold capitalize">User Member</h2>
+            <h2 className="py-2 font-bold capitalize">
+              {getUserData?.username}
+            </h2>
             <p className="text-gray-500 first-letter:uppercase text-sm">
-              I am a writer and content creator.
+              {getUserData?.bio}
             </p>
             {currentUser?.uid === getUserData?.userId && (
               <button

@@ -1,17 +1,13 @@
-import useFetch from "../../hooks/useFetch";
 import { readTime } from "../../../utils/helper";
 import moment from "moment/moment";
 import SavedPost from "./Actions/SavedPost";
 import { Blog } from "../../../Context/Context";
-import Loading from "../../Loading/Loading";
 import Actions from "./Actions/Actions";
 import { useNavigate } from "react-router-dom";
 
 const PostsCard = ({ post }) => {
-  const { title, desc, created, postImg, id: postId, userId } = post;
+  const { title, desc, created, postImg, id: postId, userId, username } = post;
   const { currentUser } = Blog();
-  const { data, loading } = useFetch("users");
-  const getUserData = data && data?.find((user) => user?.id === userId);
 
   const navigate = useNavigate();
 
@@ -21,11 +17,8 @@ const PostsCard = ({ post }) => {
         onClick={() => navigate(`/post/${postId}`)}
         className="flex flex-col sm:flex-row gap-4 cursor-pointer"
       >
-        {loading && <Loading />}
         <div className="flex-[2.5]">
-          <p className="pb-2 font-semibold capitalize">
-            {getUserData?.username}
-          </p>
+          <p className="pb-2 font-semibold capitalize">{username}</p>
           <h2 className="text-xl font-bold line-clamp-2 leading-6 capitalize">
             {title}
           </h2>
@@ -34,9 +27,15 @@ const PostsCard = ({ post }) => {
             dangerouslySetInnerHTML={{ __html: desc }}
           />
         </div>
-        <div className="flex-[1]">
-          <img src={postImg} alt="postImg" className="w-[53rem]" />
-        </div>
+        {postImg && (
+          <div className="flex-[1]">
+            <img
+              src={postImg}
+              alt="postImg"
+              className="w-[53rem] h-[8rem] object-cover"
+            />
+          </div>
+        )}
       </div>
       <div className="flex items-center justify-between w-full md:w-[70%] mt-[2rem] md:mt-0">
         <p className="text-xs text-gray-600">
@@ -45,7 +44,9 @@ const PostsCard = ({ post }) => {
         </p>
         <div className="flex items-center gap-3">
           <SavedPost post={post} />
-          {currentUser?.uid === userId && <Actions post={post} />}
+          {currentUser?.uid === userId && (
+            <Actions postId={postId} title={title} desc={desc} />
+          )}
         </div>
       </div>
     </section>

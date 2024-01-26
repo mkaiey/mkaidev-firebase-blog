@@ -9,7 +9,7 @@ import { doc, updateDoc } from "firebase/firestore";
 const EditProfile = ({ editModal, setEditModal, getUserData }) => {
   const imgRef = useRef(null);
   const [imgUrl, setImgUrl] = useState("");
-  // eslint-disable-next-line no-unused-vars
+  // loading must be implemented in the button
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     username: "",
@@ -153,7 +153,9 @@ const EditProfile = ({ editModal, setEditModal, getUserData }) => {
           </button>
           <button
             onClick={saveForm}
-            className={`${btn} bg-green-800 text-white`}
+            className={`${btn} bg-green-800 text-white ${
+              loading ? "opacity-50" : ""
+            }`}
           >
             Save
           </button>
