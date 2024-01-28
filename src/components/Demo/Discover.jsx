@@ -19,9 +19,9 @@ const Discover = () => {
             </button>
           ))}
         </div>
-        <button className="text-green-600 text-sm py-3 hover:text-black1">
+        {/* <button className="text-green-600 text-sm py-3 hover:text-black1">
           See more topics
-        </button>
+        </button> */}
       </div>
       <div className="flex items-center flex-wrap gap-3 leading-3 pt-8">
         {discoverActions.map((item, i) => (
