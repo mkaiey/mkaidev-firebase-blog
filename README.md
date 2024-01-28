@@ -1,5 +1,7 @@
 ## Full stack Blog using React JS, Tailwind css, Firebase
-<img src="./public/banner.png" alt="banner-image"/>
+<img src="./public/demobanner.png" alt="banner-image"/>
+
+<img src="./public/blogbanner.png" alt="banner-image"/>
 
 ## Features
 
