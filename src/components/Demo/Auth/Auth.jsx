@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Modal from "../../../utils/Modal";
 import { LiaTimesSolid } from "react-icons/lia";
 import { FcGoogle } from "react-icons/fc";

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { PiHandsClappingDuotone } from "react-icons/pi";
 import { Blog } from "../../../../Context/Context";
 import { deleteDoc, doc, setDoc } from "firebase/firestore";
@@ -17,6 +17,7 @@ const Like = ({ postId }) => {
     setIsLiked(
       data && data.findIndex((item) => item.id === currentUser?.uid) !== -1
     );
+    // eslint-disable-next-line
   }, [data]);
 
   const handleLike = async () => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ReactQuill from "react-quill";
 import { Blog } from "../../../Context/Context";
 
@@ -10,6 +10,7 @@ const EditPost = () => {
       setTitle(updateData.title);
       setDescription(updateData.description);
     }
+    // eslint-disable-next-line
   }, [updateData]);
 
   return (
