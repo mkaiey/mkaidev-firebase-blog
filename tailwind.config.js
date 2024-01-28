@@ -1,12 +1,11 @@
 /** @type {import('tailwindcss').Config} */
-/** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
         black1: "rgba(0,0,0,0.8)",
-        banner: "rgb(232, 240, 168)",
+        banner: "rgb(100,100,100)",
       },
       fontFamily: {
         title: `gt-super, Georgia, Cambria,Times New Roman, Times, serif;`,

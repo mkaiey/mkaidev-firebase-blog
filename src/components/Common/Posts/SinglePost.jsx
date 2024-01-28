@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, increment, updateDoc } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
 import { toast } from "react-toastify";
 import Loading from "../../Loading/Loading";
@@ -21,6 +21,32 @@ const SinglePost = () => {
   const [post, setPost] = useState("");
   const [loading, setLoading] = useState(false);
   const { currentUser } = Blog();
+
+  // increment page views
+  const isInitialRender = useRef(true);
+  useEffect(() => {
+    if (isInitialRender?.current) {
+      const incrementPageView = async () => {
+        try {
+          const ref = doc(db, "posts", postId);
+          await updateDoc(
+            ref,
+            {
+              pageViews: increment(1),
+            },
+            { merge: true }
+          );
+        } catch (error) {
+          toast.error(error.message);
+        }
+      };
+
+      incrementPageView();
+    }
+
+    isInitialRender.current = false;
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -74,7 +100,9 @@ const SinglePost = () => {
               <div>
                 <div className="capitalize">
                   <span>{username} .</span>
-                  {currentUser?.uid !== userId && <FollowBtn userId={userId} />}
+                  {currentUser && currentUser?.uid !== userId && (
+                    <FollowBtn userId={userId} />
+                  )}
                 </div>
                 <p className="text-sm text-gray-500">
                   {readTime({ __html: desc })} min read .
@@ -90,7 +118,7 @@ const SinglePost = () => {
               <div className="flex items-center pt-2 gap-5">
                 {post && <SavedPost post={post} />}
                 <SharePost />
-                {currentUser?.uid === post?.userId && (
+                {currentUser && currentUser?.uid === post?.userId && (
                   <Actions postId={postId} title={title} desc={desc} />
                 )}
               </div>
