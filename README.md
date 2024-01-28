@@ -1,8 +1,18 @@
-# React + Vite
+## Full stack Blog using React JS, Tailwind css, Firebase
+<img src="./public/banner.png" alt="banner-image"/>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
 
-Currently, two official plugins are available:
+- CRUD Post
+- User Profile
+- Follow Unfollow User
+- CRUD Comment
+- Authentication
+- Search Post
+- Filter Post
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies
+
+- [React JS](https://reactjs.org/docs/getting-started.html)
+- [Firebase](https://firebase.google.com)
+- [Tailwind css](https://tailwindcss.com)

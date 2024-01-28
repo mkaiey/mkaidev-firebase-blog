@@ -1,3 +1,4 @@
+import React from "react";
 import { FaRegComment } from "react-icons/fa";
 import { Blog } from "../../../../Context/Context";
 import { formatNum } from "../../../../utils/helper";

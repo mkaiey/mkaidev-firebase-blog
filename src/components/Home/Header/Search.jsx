@@ -15,6 +15,7 @@ const Search = ({ modal, setModal }) => {
     );
 
   const navigate = useNavigate();
+
   return (
     <>
       <Modal modal={modal} setModal={setModal}>

@@ -44,7 +44,7 @@ const PostsCard = ({ post }) => {
         </p>
         <div className="flex items-center gap-3">
           <SavedPost post={post} />
-          {currentUser?.uid === userId && (
+          {post && currentUser?.uid === userId && (
             <Actions postId={postId} title={title} desc={desc} />
           )}
         </div>

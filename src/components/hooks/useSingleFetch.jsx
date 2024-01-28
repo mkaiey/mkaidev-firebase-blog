@@ -19,7 +19,7 @@ const useSingleFetch = (collectionName, id, subCol) => {
       });
     };
     getSingleData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [db, id]);
   return {
     data,

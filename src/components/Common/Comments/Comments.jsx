@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "../../../utils/Modal";
 import { LiaTimesSolid } from "react-icons/lia";
 import { Blog } from "../../../Context/Context";
@@ -46,7 +46,6 @@ const Comments = ({ postId }) => {
     if (data) {
       setCommentLength(data.length);
     }
-    // eslint-disable-next-line
   }, [data]);
 
   return (
@@ -101,7 +100,7 @@ const Comments = ({ postId }) => {
             {data &&
               data.map((item, i) =>
                 loading ? (
-                  <Loading key={i} />
+                  <Loading />
                 ) : (
                   <Comment item={item} postId={postId} key={i} />
                 )

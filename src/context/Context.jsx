@@ -1,10 +1,9 @@
 import { onAuthStateChanged } from "firebase/auth";
-import { useContext, useEffect } from "react";
-import { useState } from "react";
-import { createContext } from "react";
+import { useContext, useEffect, useState, createContext } from "react";
 import { auth, db } from "../firebase/firebase";
 import Loading from "../components/Loading/Loading";
 import { collection, onSnapshot, query } from "firebase/firestore";
+import useFetch from "../components/hooks/useFetch";
 
 const BlogContext = createContext();
 
@@ -52,6 +51,8 @@ const Context = ({ children }) => {
     getUsers();
   }, []);
 
+  const { data: postData, loading: postLoading } = useFetch("posts");
+
   return (
     <BlogContext.Provider
       value={{
@@ -71,6 +72,8 @@ const Context = ({ children }) => {
         setTitle,
         description,
         setDescription,
+        postData,
+        postLoading,
       }}
     >
       {loading ? <Loading /> : children}

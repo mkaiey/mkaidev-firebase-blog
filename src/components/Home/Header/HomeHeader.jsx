@@ -38,8 +38,9 @@ const HomeHeader = () => {
       });
       navigate(`/post/${postId}`);
       toast.success("Post has been updated");
-      // eslint-disable-next-line
     } catch (error) {
+      toast.error(error.message);
+      setLoading(false);
     } finally {
       setLoading(false);
     }

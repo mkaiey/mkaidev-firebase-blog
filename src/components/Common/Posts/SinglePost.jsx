@@ -36,8 +36,9 @@ const SinglePost = () => {
             const getUser = await getDoc(userRef);
 
             if (getUser.exists()) {
-              const userData = getUser.data();
-              setPost({ ...postData, ...userData, id: postId });
+              // eslint-disable-next-line
+              const { created, ...rest } = getUser.data();
+              setPost({ ...postData, ...rest, id: postId });
             }
           }
         }
