@@ -76,7 +76,7 @@ const Context = ({ children }) => {
         postData,
         postLoading,
         authModel,
-        setAuthModel
+        setAuthModel,
       }}
     >
       {loading ? <Loading /> : children}
